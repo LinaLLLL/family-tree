@@ -3,22 +3,24 @@
     static void Main(string[] args)
     {
         //1 задание
-        Console.WriteLine("Введите количество чисел в одномерном массиве:");
+        /*Console.WriteLine("Введите количество чисел в одномерном массиве:");
         int n = Convert.ToInt32(Console.ReadLine());
         int[] arr = new int[n];
         CreateOneDimensionalArray(n, arr);
         ShowOneDimensionalArray(arr);
         Console.WriteLine("Введите номер элемента, который нужно удалить:");
         int numberToDelete = Convert.ToInt32(Console.ReadLine());
-        ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));
-
+        ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));*/
+        
         //2 задание
         Console.WriteLine("Введите количество столбцов в двумерном массиве:");
         int columns = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Введите количество строк в двумерном массиве:");
         int lines = Convert.ToInt32(Console.ReadLine());
-        int[,] arr2 = new int[columns,lines];
-
+        int[,] arr2 = new int[lines,columns];
+        CreateTwoDimensionalArray(columns, lines, arr2);
+        ShowTwoDimensionalArray(arr2);
+        ShowTwoDimensionalArray(AddLinesInTwoDimensionaArray(columns, lines, arr2));
     }
 
     static int[] CreateOneDimensionalArray(int n, int[] arr)
@@ -60,9 +62,9 @@
     {
 
         Random rnd = new Random();
-        for (int i = 0; i < columns; i++)
+        for (int i = 0; i < lines; i++)
         {
-            for(int j = 0; j < lines; j++)
+            for(int j = 0; j < columns; j++)
             {
                 arr[i,j] = rnd.Next(0, 21);
             }
@@ -70,15 +72,37 @@
         return arr;
     }
 
-    static void ShowTwoDimensionalArray(int columns, int lines, int[,] arr)
+    static void ShowTwoDimensionalArray(int[,] arr)
     {
-        for(int i = 0; i < columns; i++)
+        for(int i = 0; i < arr.GetLength(0); i++)
         {
-            for (int j = 0; j < lines; j++)
+            for (int j = 0; j < arr.GetLength(1); j++)
             {
                 Console.Write(arr[i,j] + " ");
             }
+            Console.WriteLine();
         }
         Console.WriteLine();
+    }
+
+    static int[,] AddLinesInTwoDimensionaArray(int columns, int lines, int[,] arr)
+    {
+        Random rnd = new Random();
+        int[,] arr2 = new int[lines + 1, columns];
+        for (int i = 0; i <1; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                arr2[i, j] = rnd.Next(0, 21);
+            }
+        }
+        for (int i = 1; i <= lines; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                arr2[i, j] = arr[i-1,j];
+            }
+        }
+        return arr2;
     }
 }
