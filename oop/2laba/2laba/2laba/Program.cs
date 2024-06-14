@@ -1,56 +1,82 @@
-﻿class Program
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+class Program
 {
     static void Main(string[] args)
     {
         //1 задание
-        Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
-        int inputSelection = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите количество чисел в одномерном массиве:");
-        int n = Convert.ToInt32(Console.ReadLine());
-        int[] arr = new int[n];
-
-        if (inputSelection == 1)
-        {
-            CreateOneDimensionalArray(n, arr);
-        }
-        else if (inputSelection == 2)
-        {
-            CreateOneDimensionalArrayManually(n, arr);
-        }
-        else
-        {
-            Console.WriteLine("Неверное число, введите 1 или 2");
-        }
-
-        ShowOneDimensionalArray(arr);
-        Console.WriteLine("Введите номер элемента, который нужно удалить:");
-        int numberToDelete = Convert.ToInt32(Console.ReadLine());
-        ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));
         
+        try
+        {
+            /*
+            Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
+            int inputSelection = Convert.ToInt32(Console.ReadLine());
+            
+            Console.WriteLine("Введите количество чисел в одномерном массиве:");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n];
 
-        //2 задание
-        /*
-        Console.WriteLine("Введите количество столбцов в двумерном массиве:");
-        int columns = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите количество строк в двумерном массиве:");
-        int lines = Convert.ToInt32(Console.ReadLine());
-        int[,] arr2 = new int[lines,columns];
-        CreateTwoDimensionalArray(columns, lines, arr2);
-        ShowTwoDimensionalArray(arr2);
-        ShowTwoDimensionalArray(AddLinesInTwoDimensionaArray(columns, lines, arr2));
-        */
+            if (inputSelection == 1)
+            {
+                CreateOneDimensionalArray(n, arr);
+            }
+            else if (inputSelection == 2)
+            {
+                CreateOneDimensionalArrayManually(n, arr);
+            }
+            else
+            {
+                Console.WriteLine("Неверное число, введите 1 или 2");
+            }
 
-        //3 задание
-        /*
-        Console.WriteLine("Введите количество строк в рваном массиве:");
-        int linesInSteppedArray = Convert.ToInt32(Console.ReadLine());
-        int[][] arr3 = new int[linesInSteppedArray][];
-        CreateSteppedArray(linesInSteppedArray, arr3);
-        ShowSteppedArray(arr3);
-        Console.WriteLine("Введите номер строки, после которой остальные строки удалятся:");
-        int lineNumber = Convert.ToInt32(Console.ReadLine());
-        ShowSteppedArray(DeleteLinesInSteppedArray(lineNumber, arr3));
-        */
+            ShowOneDimensionalArray(arr);
+            Console.WriteLine("Введите номер элемента, который нужно удалить:");
+            int numberToDelete = Convert.ToInt32(Console.ReadLine());
+            ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));
+            */
+
+            //2 задание
+            Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
+            int inputSelection = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите количество столбцов в двумерном массиве:");
+            int columns = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите количество строк в двумерном массиве:");
+            int lines = Convert.ToInt32(Console.ReadLine());
+            int[,] arr2 = new int[lines,columns];
+            if (inputSelection == 1)
+            {
+                CreateTwoDimensionalArray(columns, lines, arr2);
+            }
+            else if (inputSelection == 2)
+            {
+                CreateTwoDimensionalArrayManually(columns, lines, arr2);
+            }
+            else
+            {
+                Console.WriteLine("Неверное число, введите 1 или 2");
+            }
+            ShowTwoDimensionalArray(arr2);
+            ShowTwoDimensionalArray(AddLinesInTwoDimensionaArray(columns, lines, arr2));
+
+
+             //3 задание
+             /*
+            Console.WriteLine("Введите количество строк в рваном массиве:");
+            int linesInSteppedArray = Convert.ToInt32(Console.ReadLine());
+            int[][] arr3 = new int[linesInSteppedArray][];
+            CreateSteppedArray(linesInSteppedArray, arr3);
+            ShowSteppedArray(arr3);
+            Console.WriteLine("Введите номер строки, после которой остальные строки удалятся:");
+            int lineNumber = Convert.ToInt32(Console.ReadLine());
+            ShowSteppedArray(DeleteLinesInSteppedArray(lineNumber, arr3));
+            */
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Вы ввели буквы, будьте впредь аккуратны");
+            
+        }
+       
     }
     //1 задание
     static int[] CreateOneDimensionalArray(int n, int[] arr) // создание массива с помощью ДСЧ
@@ -110,6 +136,19 @@
         }
         return arr;
     }
+    static int[,] CreateTwoDimensionalArrayManually(int columns, int lines, int[,] arr) // создание двумерного массива вручную
+    {
+        Console.WriteLine("Введите числа массива:");
+        for (int i = 0; i < lines; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        return arr;
+    }
+
 
     static void ShowTwoDimensionalArray(int[,] arr) // вывод двумерного массива
     {
