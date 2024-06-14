@@ -3,16 +3,30 @@
     static void Main(string[] args)
     {
         //1 задание
-        /*
+        Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
+        int inputSelection = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Введите количество чисел в одномерном массиве:");
         int n = Convert.ToInt32(Console.ReadLine());
         int[] arr = new int[n];
-        CreateOneDimensionalArray(n, arr);
+
+        if (inputSelection == 1)
+        {
+            CreateOneDimensionalArray(n, arr);
+        }
+        else if (inputSelection == 2)
+        {
+            CreateOneDimensionalArrayManually(n, arr);
+        }
+        else
+        {
+            Console.WriteLine("Неверное число, введите 1 или 2");
+        }
+
         ShowOneDimensionalArray(arr);
         Console.WriteLine("Введите номер элемента, который нужно удалить:");
         int numberToDelete = Convert.ToInt32(Console.ReadLine());
         ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));
-        */
+        
 
         //2 задание
         /*
@@ -27,6 +41,7 @@
         */
 
         //3 задание
+        /*
         Console.WriteLine("Введите количество строк в рваном массиве:");
         int linesInSteppedArray = Convert.ToInt32(Console.ReadLine());
         int[][] arr3 = new int[linesInSteppedArray][];
@@ -35,10 +50,10 @@
         Console.WriteLine("Введите номер строки, после которой остальные строки удалятся:");
         int lineNumber = Convert.ToInt32(Console.ReadLine());
         ShowSteppedArray(DeleteLinesInSteppedArray(lineNumber, arr3));
-
+        */
     }
     //1 задание
-    static int[] CreateOneDimensionalArray(int n, int[] arr)
+    static int[] CreateOneDimensionalArray(int n, int[] arr) // создание массива с помощью ДСЧ
     {
         
         Random rnd = new Random();
@@ -49,7 +64,16 @@
         return arr;
     }
 
-    static void ShowOneDimensionalArray(int[] array)
+    static int[] CreateOneDimensionalArrayManually(int n, int[] arr) // создание массива вручную
+    {
+        Console.WriteLine("Введите числа массива:");
+        for (int i = 0; i < n; i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arr;
+    }
+    static void ShowOneDimensionalArray(int[] array) // вывод массива
     {
         for (int i = 0; i < array.Length; i++)
         {
@@ -58,7 +82,7 @@
         Console.WriteLine();
     }
 
-    static int[] DeleteElementInOneDimensionalArray(int n, int[] arr)
+    static int[] DeleteElementInOneDimensionalArray(int n, int[] arr) // удаление элемента в массиве
     {
         int[] arr2 = new int[arr.Length-1];
         for (int i = 0;i < n; i++)
@@ -73,7 +97,7 @@
         
     }
     //2 задание
-    static int[,] CreateTwoDimensionalArray(int columns, int lines, int[,] arr)
+    static int[,] CreateTwoDimensionalArray(int columns, int lines, int[,] arr) // создание двумерного массива
     {
 
         Random rnd = new Random();
@@ -87,7 +111,7 @@
         return arr;
     }
 
-    static void ShowTwoDimensionalArray(int[,] arr)
+    static void ShowTwoDimensionalArray(int[,] arr) // вывод двумерного массива
     {
         for(int i = 0; i < arr.GetLength(0); i++)
         {
@@ -100,7 +124,7 @@
         Console.WriteLine();
     }
 
-    static int[,] AddLinesInTwoDimensionaArray(int columns, int lines, int[,] arr)
+    static int[,] AddLinesInTwoDimensionaArray(int columns, int lines, int[,] arr) // добавление строки в начало матрицы
     {
         Random rnd = new Random();
         int[,] arr2 = new int[lines + 1, columns];
@@ -122,7 +146,7 @@
     }
 
     //3 задание
-    static int[][] CreateSteppedArray(int lines, int[][] arr)
+    static int[][] CreateSteppedArray(int lines, int[][] arr) // создание рваного массива
     {
         Random rnd = new Random();
         
@@ -142,7 +166,7 @@
         return arr;
     }
 
-    static void ShowSteppedArray(int[][] arr)
+    static void ShowSteppedArray(int[][] arr) // вывод рваного массива
     {
         for (int i = 0; i < arr.GetLength(0); i++)
         {
@@ -155,7 +179,7 @@
         Console.WriteLine();
     }
 
-    static int[][] DeleteLinesInSteppedArray(int line, int[][] arr)
+    static int[][] DeleteLinesInSteppedArray(int line, int[][] arr) // удаление строк в рваном массиве после заданной строки
     {
         int[][] arr2 = new int[line][];
         for (int i = 0; i < line; i++)
