@@ -2,14 +2,22 @@
 {
     static void Main(string[] args)
     {
+        //1 задание
         Console.WriteLine("Введите количество чисел в одномерном массиве:");
         int n = Convert.ToInt32(Console.ReadLine());
         int[] arr = new int[n];
         CreateOneDimensionalArray(n, arr);
         ShowOneDimensionalArray(arr);
-        Console.WriteLine(" Введите номер элемента, который нужно удалить:");
+        Console.WriteLine("Введите номер элемента, который нужно удалить:");
         int numberToDelete = Convert.ToInt32(Console.ReadLine());
         ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));
+
+        //2 задание
+        Console.WriteLine("Введите количество столбцов в двумерном массиве:");
+        int columns = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Введите количество строк в двумерном массиве:");
+        int lines = Convert.ToInt32(Console.ReadLine());
+        int[,] arr2 = new int[columns,lines];
 
     }
 
@@ -46,5 +54,31 @@
         }
         return arr2;
         
+    }
+
+    static int[,] CreateTwoDimensionalArray(int columns, int lines, int[,] arr)
+    {
+
+        Random rnd = new Random();
+        for (int i = 0; i < columns; i++)
+        {
+            for(int j = 0; j < lines; j++)
+            {
+                arr[i,j] = rnd.Next(0, 21);
+            }
+        }
+        return arr;
+    }
+
+    static void ShowTwoDimensionalArray(int columns, int lines, int[,] arr)
+    {
+        for(int i = 0; i < columns; i++)
+        {
+            for (int j = 0; j < lines; j++)
+            {
+                Console.Write(arr[i,j] + " ");
+            }
+        }
+        Console.WriteLine();
     }
 }
