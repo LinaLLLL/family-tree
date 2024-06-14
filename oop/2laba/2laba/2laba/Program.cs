@@ -30,8 +30,17 @@ class Program
             ShowOneDimensionalArray(arr);
             Console.WriteLine("Введите номер элемента, который нужно удалить:");
             int numberToDelete = Convert.ToInt32(Console.ReadLine());
-            ShowOneDimensionalArray(DeleteElementInOneDimensionalArray(numberToDelete, arr));
+            int[] res = DeleteElementInOneDimensionalArray(numberToDelete, arr);
+            if(res!= null)
+            {
+                ShowOneDimensionalArray(res);
+            }
+            else
+            {
+                Console.WriteLine("Элемента с таким номером нет в массиве");
+            }
             */
+            
 
             //2 задание
             /*
@@ -60,6 +69,7 @@ class Program
 
 
             //3 задание
+            
             Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
             int inputSelection = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите количество строк в рваном массиве:");
@@ -80,7 +90,15 @@ class Program
             ShowSteppedArray(arr3);
             Console.WriteLine("Введите номер строки, после которой остальные строки удалятся:");
             int lineNumber = Convert.ToInt32(Console.ReadLine());
-            ShowSteppedArray(DeleteLinesInSteppedArray(lineNumber, arr3));
+            int[][] res = DeleteLinesInSteppedArray(lineNumber, arr3);
+            if (res != null)
+            {
+                ShowSteppedArray(res);
+            }
+            else
+            {
+                Console.WriteLine("Строки с таким номером нет в массиве");
+            }
             
         }
         catch (FormatException)
@@ -122,17 +140,24 @@ class Program
 
     static int[] DeleteElementInOneDimensionalArray(int n, int[] arr) // удаление элемента в массиве
     {
-        int[] arr2 = new int[arr.Length-1];
-        for (int i = 0;i < n; i++)
+        if (n < arr.Length)
         {
-            arr2[i] = arr[i];
+            int[] arr2 = new int[arr.Length - 1];
+            for (int i = 0; i < n; i++)
+            {
+                arr2[i] = arr[i];
+            }
+            for (int i = n; i < arr.Length - 1; i++)
+            {
+                arr2[i] = arr[i + 1];
+            }
+            return arr2;
         }
-        for (int i = n;i<arr.Length-1 ; i++)
+        else
         {
-            arr2[i] = arr[i+1];
+            return null;
+            
         }
-        return arr2;
-        
     }
     //2 задание
     static int[,] CreateTwoDimensionalArray(int columns, int lines, int[,] arr) // создание двумерного массива
@@ -251,19 +276,26 @@ class Program
 
     static int[][] DeleteLinesInSteppedArray(int line, int[][] arr) // удаление строк в рваном массиве после заданной строки
     {
-        int[][] arr2 = new int[line][];
-        for (int i = 0; i < line; i++)
+        if (line < arr.GetLength(0))
         {
-            arr2[i] = new int[arr[i].Length];
-        }
-        for (int i = 0; i < line; i++)
-        {
-            for (int j = 0; j < arr[i].Length; j++)
+            int[][] arr2 = new int[line][];
+            for (int i = 0; i < line; i++)
             {
-                arr2[i][j] = arr[i][j];
+                arr2[i] = new int[arr[i].Length];
             }
+            for (int i = 0; i < line; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    arr2[i][j] = arr[i][j];
+                }
+            }
+            return arr2;
         }
-        return arr2;
+        else
+        {
+            return null;
+        }
     }
 
        
