@@ -4,18 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        //1 задание
+        
         
         try
         {
+            //1 задание
             /*
             Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
             int inputSelection = Convert.ToInt32(Console.ReadLine());
-            
             Console.WriteLine("Введите количество чисел в одномерном массиве:");
             int n = Convert.ToInt32(Console.ReadLine());
             int[] arr = new int[n];
-
             if (inputSelection == 1)
             {
                 CreateOneDimensionalArray(n, arr);
@@ -28,7 +27,6 @@ class Program
             {
                 Console.WriteLine("Неверное число, введите 1 или 2");
             }
-
             ShowOneDimensionalArray(arr);
             Console.WriteLine("Введите номер элемента, который нужно удалить:");
             int numberToDelete = Convert.ToInt32(Console.ReadLine());
@@ -36,6 +34,7 @@ class Program
             */
 
             //2 задание
+            /*
             Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
             int inputSelection = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите количество столбцов в двумерном массиве:");
@@ -57,19 +56,32 @@ class Program
             }
             ShowTwoDimensionalArray(arr2);
             ShowTwoDimensionalArray(AddLinesInTwoDimensionaArray(columns, lines, arr2));
+            */
 
 
-             //3 задание
-             /*
+            //3 задание
+            Console.WriteLine("Выберите: \n 1)Ввод чисел в массив с помощью ДСЧ \n 2)Ввод чисел в массив вручную");
+            int inputSelection = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите количество строк в рваном массиве:");
             int linesInSteppedArray = Convert.ToInt32(Console.ReadLine());
             int[][] arr3 = new int[linesInSteppedArray][];
-            CreateSteppedArray(linesInSteppedArray, arr3);
+            if (inputSelection == 1)
+            {
+                CreateSteppedArray(linesInSteppedArray, arr3);
+            }
+            else if (inputSelection == 2)
+            {
+                CreateSteppedArrayManually(linesInSteppedArray, arr3);
+            }
+            else
+            {
+                Console.WriteLine("Неверное число, введите 1 или 2");
+            }         
             ShowSteppedArray(arr3);
             Console.WriteLine("Введите номер строки, после которой остальные строки удалятся:");
             int lineNumber = Convert.ToInt32(Console.ReadLine());
             ShowSteppedArray(DeleteLinesInSteppedArray(lineNumber, arr3));
-            */
+            
         }
         catch (FormatException)
         {
@@ -205,6 +217,25 @@ class Program
         return arr;
     }
 
+    static int[][] CreateSteppedArrayManually(int lines, int[][] arr) // создание рваного массива вручную
+    {
+
+        Console.WriteLine("Введите количество чисел в строке:");
+        for (int i = 0; i < lines; i++)
+        {
+            arr[i] = new int[Convert.ToInt32(Console.ReadLine())];
+        }
+        Console.WriteLine("Введите числа массива:");
+        for (int i = 0; i < lines; i++)
+        {
+
+            for (int j = 0; j < arr[i].Length; j++)
+            {
+                arr[i][j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        return arr;
+    }
     static void ShowSteppedArray(int[][] arr) // вывод рваного массива
     {
         for (int i = 0; i < arr.GetLength(0); i++)

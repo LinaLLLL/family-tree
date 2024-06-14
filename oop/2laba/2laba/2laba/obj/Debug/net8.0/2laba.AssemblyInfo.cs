@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2laba")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a474e18f1bff78861fd1713d088e83b0e09aabb5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ba39a69c9b3bb88917f7018e7ae5474cff1a404")]
 [assembly: System.Reflection.AssemblyProductAttribute("2laba")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2laba")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
