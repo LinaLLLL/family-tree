@@ -6,20 +6,27 @@ class Programm
     // в другие перемменный ввести первое и последнее слово, из основной удалить их и потом сложить как надо
     static void Main(string[] args)
     {
-        Console.WriteLine("Введите строку:");
-        string string1 = Console.ReadLine();
-
-        if (string1 != null) // проверяет пустая ли строка
+        try
         {
-            string1.TrimStart(); // удаляет пробелы в начале
-            string1.TrimEnd(); // удаляет пробелы в конце
+            Console.WriteLine("Введите строку:");
+            string string1 = Console.ReadLine();
+
+            if (string1 != null) // проверяет пустая ли строка
+            {
+                string1.TrimStart(); // удаляет пробелы в начале
+                string1.TrimEnd(); // удаляет пробелы в конце
+            }
+            else
+            {
+                Console.WriteLine("Вы ввели пустую строку");
+            }
+            string result = ChangeLastAndFirstWord(string1);
+            Console.WriteLine(result);
         }
-        else
+        catch (Exception ex)
         {
             Console.WriteLine("Вы ввели пустую строку");
         }
-        string result = ChangeLastAndFirstWord(string1);
-        Console.WriteLine(result);
 
     }
 
