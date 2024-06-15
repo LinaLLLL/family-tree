@@ -27,8 +27,13 @@
             ShowTwoDimensionalArray(arr);
 
             int minValueInArray = FindMinimumValue(arr);
-
+            Console.WriteLine($"Минимальный элемент массива: {minValueInArray}");
             int columnWhereMinValue = FindCollumnsWhereMinValue(arr, minValueInArray);
+            Console.WriteLine($"столбик: {columnWhereMinValue}");
+            int[,] result = new int[arr.GetLength(0), arr.GetLength(1)-1];
+            result = DeleteColumnsWhereMinValue(arr, minValueInArray, columnWhereMinValue, result);
+            ShowTwoDimensionalArray(result);
+
         }
         catch (FormatException)
         {
@@ -46,7 +51,7 @@
         {
             for (int j = 0; j < columns; j++)
             {
-                arr[i, j] = rnd.Next(0, 21);
+                arr[i, j] = rnd.Next(1, 6);
             }
         }
         return arr;
@@ -80,15 +85,15 @@
 
     static int FindMinimumValue(int[,] arr) //нахождение минимального занчения в массиве
     {
-        int one = 0;
+        int one = 1;
         
         for (int i = 0; i < arr.GetLength(0); i++)
         {
             for (int j = 0; j < arr.GetLength(1); j++)
             {
-                if (one < arr[i, j])
+                if (one >= arr[j, i])
                 {
-                    one = arr[i, j];
+                    one = arr[j, i];
                 }
             }
         }
@@ -101,14 +106,46 @@
         {
             for (int j = 0; j < arr.GetLength(1); j++)
             {
-                if (min == arr[i, j])
+                if (min == arr[j, i])
                 {
-                    return j;
+                    return i;
                 } 
             }            
         }
         return 0;       
     }
 
+    static int[,] DeleteColumnsWhereMinValue(int[,] arr, int min, int column, int[,] result) // удаление столбца с минимальным элементом
+    {
+        if (column == 0)
+        {
+            for (int i = 0; i < result.GetLength(0); i++)
+            {
+                for (int j = 0; j < result.GetLength(1); j++)
+                {
+                    result[i, j] = arr[i, j + 1];
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    result[i, j] = arr[i, j];
+                }
+            }
+            for (int i = 0; i < result.GetLength(0); i++)
+            {
+                for (int j = column ; j < result.GetLength(1); j++)
+                {
+                    result[i, j] = arr[i, j];
+                }
+            }
+        }
+        return result;
+
+    }
    
 }
