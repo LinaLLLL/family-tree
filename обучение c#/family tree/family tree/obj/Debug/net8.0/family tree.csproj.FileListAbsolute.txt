@@ -1,0 +1,5 @@
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.AssemblyInfoInputs.cache
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.AssemblyInfo.cs
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.csproj.CoreCompileInputs.cache
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.sourcelink.json
