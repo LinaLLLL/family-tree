@@ -3,3 +3,13 @@ C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debu
 C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.AssemblyInfo.cs
 C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.csproj.CoreCompileInputs.cache
 C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.sourcelink.json
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\bin\Debug\net8.0\family tree.exe
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\bin\Debug\net8.0\family tree.deps.json
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\bin\Debug\net8.0\family tree.runtimeconfig.json
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\bin\Debug\net8.0\family tree.dll
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\bin\Debug\net8.0\family tree.pdb
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.dll
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\refint\family tree.dll
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.pdb
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\family tree.genruntimeconfig.cache
+C:\Users\linac\source\repos\обучение c#\family tree\family tree\obj\Debug\net8.0\ref\family tree.dll

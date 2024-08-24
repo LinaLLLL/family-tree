@@ -10,10 +10,12 @@ namespace family_tree
     {
         public string FullName { get; set; }
         public int Age { get; set; }
-        Gender gender { get; set; }
-        FamilyMembers Mother { get; set; }
-        FamilyMembers Father { get; set; }
-
+        public Gender gender { get; set; }
+        public FamilyMembers Mother { get; set; }
+        public FamilyMembers Father { get; set; }
+        public FamilyMembers Wife { get; set; }
+        public FamilyMembers Husband { get; set; }
+        
         public FamilyMembers[] GetGrandMother()
         {
             return new FamilyMembers[] { Mother.Mother, Father.Mother };
@@ -26,10 +28,11 @@ namespace family_tree
         {
             return new FamilyMembers[] { Mother, Father };
         }
-        //public FamilyMembers GetChildren()
-        //{
-        //    //return new FamilyMembers ;
-        //}
+        public FamilyMembers[] GetSpouses()
+        {
+            return new FamilyMembers[] { Wife, Husband };
+        }
+        
 
     }
     public enum Gender { male, female }
